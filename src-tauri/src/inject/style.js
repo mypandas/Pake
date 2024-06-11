@@ -418,3 +418,42 @@ window.addEventListener('DOMContentLoaded', _event => {
     document.head.appendChild(topPaddingStyleElement);
   }
 });
+
+// 给一个或多个具有类名 .iconWrapper__qVg8s 元素应用这些样式 //
+const iconWrapperStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: '14px',
+    pointerEvents: 'none'
+};
+
+const elements = document.querySelectorAll('.iconWrapper__qVg8s');
+
+elements.forEach(element => {
+    for (const property in iconWrapperStyle) {
+        if (iconWrapperStyle.hasOwnProperty(property)) {
+            element.style[property] = iconWrapperStyle[property];
+        }
+    }
+});
+
+
+// 给一个或多个具有类名 .bannerText__Q6m2v 元素应用这些样式 //
+const bannerTextStyle = {
+    fontSize: '0px',
+    color: '#151b26',
+    lineHeight: '0px',
+    fontWeight: '0'
+};
+
+const elements = document.querySelectorAll('.bannerText__Q6m2v');
+
+elements.forEach(element => {
+    for (const key in bannerTextStyle) {
+        if (bannerTextStyle.hasOwnProperty(key)) {
+            element.style[key] = bannerTextStyle[key];
+        }
+    }
+});
+
