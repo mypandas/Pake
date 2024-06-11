@@ -419,41 +419,26 @@ window.addEventListener('DOMContentLoaded', _event => {
   }
 });
 
-// 给一个或多个具有类名 .iconWrapper__qVg8s 元素应用这些样式 //
-const iconWrapperStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginLeft: '14px',
-    pointerEvents: 'none'
-};
+// 去除导航appbuilder链接跳转 // 
+document.addEventListener('DOMContentLoaded', function() {
+    const specificLink = document.querySelector('a[href="https://appbuilder.cloud.baidu.com"]');
 
-const elements = document.querySelectorAll('.iconWrapper__qVg8s');
-
-elements.forEach(element => {
-    for (const property in iconWrapperStyle) {
-        if (iconWrapperStyle.hasOwnProperty(property)) {
-            element.style[property] = iconWrapperStyle[property];
-        }
+    if (specificLink) {
+        specificLink.style.textDecoration = 'none';
+        specificLink.removeAttribute('href');
     }
 });
 
+// 去除中间登录提示页面 // 
+document.addEventListener('DOMContentLoaded', function() {
 
-// 给一个或多个具有类名 .bannerText__Q6m2v 元素应用这些样式 //
-const bannerTextStyle = {
-    fontSize: '0px',
-    color: '#151b26',
-    lineHeight: '0px',
-    fontWeight: '0'
-};
+    const loginBannerElements = document.querySelectorAll('.loginBanner__A5JEG');
+    loginBannerElements.forEach(element => {
+        element.parentNode.removeChild(element);
+    });
 
-const elements = document.querySelectorAll('.bannerText__Q6m2v');
-
-elements.forEach(element => {
-    for (const key in bannerTextStyle) {
-        if (bannerTextStyle.hasOwnProperty(key)) {
-            element.style[key] = bannerTextStyle[key];
-        }
-    }
+    const bannerTextElements = document.querySelectorAll('.bannerText__Q6m2v');
+    bannerTextElements.forEach(element => {
+        element.parentNode.removeChild(element);
+    });
 });
-
